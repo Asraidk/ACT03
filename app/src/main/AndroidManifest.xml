@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".ControlMagatzem" />
         <activity android:name=".ControlProductes" />
-        <activity android:name=".LlistaHistorial"></activity>
+        <activity android:name=".LlistaHistorial" />
+        <activity android:name=".LlistaTemps"></activity>
     </application>
 
 </manifest>

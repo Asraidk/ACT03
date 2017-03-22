@@ -48,6 +48,9 @@ public class LlistaProductes extends AppCompatActivity implements View.OnClickLi
         senseFiltre.setOnClickListener(this);
         Button historial=(Button) findViewById(R.id.btnHistorial);
         historial.setOnClickListener(this);
+        //boto per la nova activitat de per el temps
+        Button temps=(Button) findViewById(R.id.btnTemps);
+        temps.setOnClickListener(this);
 
         //part sobre els click en la list view per llançar un metode
         comunicador = new TalkerOH(this);
@@ -91,6 +94,11 @@ public class LlistaProductes extends AppCompatActivity implements View.OnClickLi
             case R.id.btnHistorial:
                 Intent intent = new Intent(LlistaProductes.this, LlistaHistorial.class);
                 startActivity(intent);
+                /*buscar maneras per poder fer un curso que retorne "" o un null no torbat*/
+                break;
+            case R.id.btnTemps:
+                Intent intent2 = new Intent(LlistaProductes.this, LlistaTemps.class);
+                startActivity(intent2);
                 /*buscar maneras per poder fer un curso que retorne "" o un null no torbat*/
                 break;
         }

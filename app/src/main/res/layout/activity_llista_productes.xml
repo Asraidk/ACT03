@@ -54,5 +54,14 @@
         android:id="@+id/btnHistorial"
         android:layout_below="@+id/layoutBoton" />
 
+    <Button
+        android:text="Temps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutBoton"
+        android:layout_toRightOf="@+id/btnHistorial"
+        android:layout_toEndOf="@+id/btnHistorial"
+        android:id="@+id/btnTemps" />
+
 </RelativeLayout>
 

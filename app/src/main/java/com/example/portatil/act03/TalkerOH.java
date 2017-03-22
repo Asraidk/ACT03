@@ -154,8 +154,22 @@ public class TalkerOH {
 
         baseDadesEscriure.update(bdAjudant.TABLE_PRODUCTES,valors, bdAjudant.COLUMN_CODI + " = ?", new String[] { String.valueOf(codi) });
     }
+/////METODES DE LA NOVA PART DEL ACT03 CONTROL CIUTATS JSON
+    //metode per carregar tots els camps de la taula ciutat
+    public Cursor carregarCiutats() {
+        // Retorem totes les tasques
+        return baseDadesLlegir.query(bdAjudant.TABLE_TEMPS, new String[]{bdAjudant.TEMPS_ID,bdAjudant.TEMPS_CIUTAT},
+                null, null,
+                null, null, bdAjudant.TEMPS_ID);
+    }
 
+    public void AfegirCiutat(String ciutat){
 
+        ContentValues valors =new ContentValues();
 
+        valors.put(bdAjudant.TEMPS_CIUTAT, ciutat);
+
+        baseDadesEscriure.insert(bdAjudant.TABLE_TEMPS,null,valors);
+    }
 }
 
