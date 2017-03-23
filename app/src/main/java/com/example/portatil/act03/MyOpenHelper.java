@@ -99,7 +99,7 @@ public class MyOpenHelper extends SQLiteOpenHelper {
         db.insert(TABLE_TEMPS,null,valors);
         valors.put(TEMPS_CIUTAT,"Girona");
         db.insert(TABLE_TEMPS,null,valors);
-        valors.put(TEMPS_CIUTAT,"Tarregona");
+        valors.put(TEMPS_CIUTAT,"Tarragona");
         db.insert(TABLE_TEMPS,null,valors);
         valors.put(TEMPS_CIUTAT,"Lleida");
         db.insert(TABLE_TEMPS,null,valors);

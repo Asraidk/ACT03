@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mostrar_la_ciutat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.portatil.act03.MostrarLaCiutat">
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/veureCiutat"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:text="Temperatura: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/veureCiutat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/temperatura"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:text="calculant...."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/veureCiutat"
+        android:layout_toRightOf="@+id/temperatura"
+        android:layout_toEndOf="@+id/temperatura"
+        android:id="@+id/tempsFa"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:text="Pressio:          "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temperatura"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView4"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:text="calculant...."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temperatura"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:id="@+id/presio"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:text="Humitat:         "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView8"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:text="calculant...."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_toRightOf="@+id/textView8"
+        android:layout_toEndOf="@+id/textView8"
+        android:id="@+id/humitat"
+        android:textSize="20dp"/>
+
+</RelativeLayout>

@@ -155,14 +155,14 @@ public class TalkerOH {
         baseDadesEscriure.update(bdAjudant.TABLE_PRODUCTES,valors, bdAjudant.COLUMN_CODI + " = ?", new String[] { String.valueOf(codi) });
     }
 /////METODES DE LA NOVA PART DEL ACT03 CONTROL CIUTATS JSON
-    //metode per carregar tots els camps de la taula ciutat
-    public Cursor carregarCiutats() {
+    //metode per carregar tots els camps de la taula ciutat retornan un cursor que carregarem a la llista mostran les ciutats
+       public Cursor carregarCiutats() {
         // Retorem totes les tasques
         return baseDadesLlegir.query(bdAjudant.TABLE_TEMPS, new String[]{bdAjudant.TEMPS_ID,bdAjudant.TEMPS_CIUTAT},
                 null, null,
                 null, null, bdAjudant.TEMPS_ID);
     }
-
+    //metode que fa un insert a la taula de ciutats quan volem posar una nova ciutat a la nostra app
     public void AfegirCiutat(String ciutat){
 
         ContentValues valors =new ContentValues();
@@ -170,6 +170,14 @@ public class TalkerOH {
         valors.put(bdAjudant.TEMPS_CIUTAT, ciutat);
 
         baseDadesEscriure.insert(bdAjudant.TABLE_TEMPS,null,valors);
+    }
+    //metode que retorna un curso que farem servir per mostrar el nom de la ciutat que em clickat en la llita en un altre activity
+    public Cursor carregaPerIdNomCiutat(long id) {
+        // Retorna un cursor només amb el id indicat
+        return baseDadesLlegir.query(bdAjudant.TABLE_TEMPS, new String[]{bdAjudant.TEMPS_ID,bdAjudant.TEMPS_CIUTAT},
+                bdAjudant.TEMPS_ID+ "=?", new String[]{String.valueOf(id)},
+                null, null, null);
+
     }
 }
 

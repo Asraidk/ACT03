@@ -18,7 +18,8 @@
         <activity android:name=".ControlMagatzem" />
         <activity android:name=".ControlProductes" />
         <activity android:name=".LlistaHistorial" />
-        <activity android:name=".LlistaTemps"></activity>
+        <activity android:name=".LlistaTemps" />
+        <activity android:name=".MostrarLaCiutat"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

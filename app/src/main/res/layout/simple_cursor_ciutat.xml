@@ -12,12 +12,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:text="Ciutat: "
+            android:textSize="25dp"
             />
         <TextView
             android:id="@+id/ciutat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
+            android:textSize="20dp"
             />
     </LinearLayout>
 
