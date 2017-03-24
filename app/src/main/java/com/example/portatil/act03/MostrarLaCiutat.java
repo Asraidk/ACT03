@@ -33,6 +33,15 @@ public class MostrarLaCiutat extends AppCompatActivity {
     //comencem per instanciar el que necesitem ames de mostraar el nom de la ciutat que em clicat--> aixo es fa amb la BD
     //Posteriorment pasem a la part de la lectura del JSON
     public void CarregarNom (){
+
+        final TextView temp = (TextView)findViewById(R.id.tempsFa);
+        final TextView presio = (TextView)findViewById(R.id.presio);
+        final TextView hum = (TextView)findViewById(R.id.humitat);
+        //para los text views a ocultar
+        final TextView tv1 = (TextView)findViewById(R.id.temperatura);
+        final TextView tv2 = (TextView)findViewById(R.id.textView4);
+        final TextView tv3 = (TextView)findViewById(R.id.textView8);
+
         Cursor datos = bd.carregaPerIdNomCiutat(task);
         datos.moveToFirst();
         final TextView veureCiutat=(TextView)findViewById(R.id.veureCiutat);
@@ -85,35 +94,47 @@ public class MostrarLaCiutat extends AppCompatActivity {
                     toast =Toast.makeText(MostrarLaCiutat.this,"Alguna cosa no anat com esperavem", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                //quan el tenim obtenim les propietats del json que volem
-                try {
-                    tempera = main.getDouble("temp");
-                    pressio = main.getDouble("pressure");
-                    humitat = main.getDouble("humidity");
-                    tempMIN = main.getDouble("temp_min");
-                    tempMAX = main.getDouble("temp_max");
-                } catch (JSONException e) {
-                    toast =Toast.makeText(MostrarLaCiutat.this,"Alguna cosa no anat com esperavem", Toast.LENGTH_SHORT);
-                    toast.show();
 
-                }
-                //si tot anat be i tenim el valors pasem a assignarlos a el textview
-                try {
-                    TextView temp = (TextView)findViewById(R.id.tempsFa);
-                    TextView presio = (TextView)findViewById(R.id.presio);
-                    TextView hum = (TextView)findViewById(R.id.humitat);
-                    //para los text views a ocultar
-                    TextView tv1 = (TextView)findViewById(R.id.temperatura);
-                    TextView tv2 = (TextView)findViewById(R.id.textView4);
-                    TextView tv3 = (TextView)findViewById(R.id.textView8);
+                try{
+                    //code si em trobat una ciutat
+                    if(temps.getInt("cod")==200){
+                        //quan el tenim obtenim les propietats del json que volem
+                        try {
+                            tempera = main.getDouble("temp");
+                            pressio = main.getDouble("pressure");
+                            humitat = main.getDouble("humidity");
+                            tempMIN = main.getDouble("temp_min");
+                            tempMAX = main.getDouble("temp_max");
+                        } catch (JSONException e) {
+                            toast =Toast.makeText(MostrarLaCiutat.this,"Alguna cosa no anat com esperavem", Toast.LENGTH_SHORT);
+                            toast.show();
 
-                    //control per saber si la ciutat existeix!!! agafem una propetat del json general
-                    if(temps.getString("name").equals(nomCiutat)){
+                        }
 
-                        temp.setText(String.valueOf(tempera)+" ºC");
-                        presio.setText(String.valueOf(pressio)+" hPa");
-                        hum.setText(String.valueOf(humitat)+" %");
+                        //si tot anat be i tenim el valors pasem a assignarlos a el textview
+                        try {
 
+                            //control per saber si la ciutat existeix!!! agafem una propetat del json general
+                            if(temps.getString("name").equalsIgnoreCase(nomCiutat)){
+
+                                temp.setText(String.valueOf(tempera)+" ºC");
+                                presio.setText(String.valueOf(pressio)+" hPa");
+                                hum.setText(String.valueOf(humitat)+" %");
+
+                            }else{
+                                veureCiutat.setText("CITY NOT FOUND");
+                                temp.setVisibility(View.INVISIBLE);
+                                presio.setVisibility(View.INVISIBLE);
+                                hum.setVisibility(View.INVISIBLE);
+                                tv1.setVisibility(View.INVISIBLE);
+                                tv2.setVisibility(View.INVISIBLE);
+                                tv3.setVisibility(View.INVISIBLE);
+
+                            }
+                        } catch (Exception e) {
+                            toast =Toast.makeText(MostrarLaCiutat.this,"Alguna cosa no anat com esperavem", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
                     }else{
                         veureCiutat.setText("CITY NOT FOUND");
                         temp.setVisibility(View.INVISIBLE);
@@ -124,10 +145,11 @@ public class MostrarLaCiutat extends AppCompatActivity {
                         tv3.setVisibility(View.INVISIBLE);
 
                     }
-                } catch (Exception e) {
-                    toast =Toast.makeText(MostrarLaCiutat.this,"Alguna cosa no anat com esperavem", Toast.LENGTH_SHORT);
-                    toast.show();
+                }catch (Exception e){
+
                 }
+
+
             }
             //si peta pues diremos que peta
             @Override
